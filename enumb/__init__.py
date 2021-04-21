@@ -3,11 +3,9 @@ import slugify
 
 import enum
 
-class NoValue(AutoName):
-    def __repr__(self) -> str:
-        return f'<{self.__class__.__name__}.{self.name}>'
-
-class StrEnum(str, enum.Enum): pass
+class StrEnum(str, enum.Enum):
+    def __str__(self) -> str:
+        return super().__str__()
 
 class AutoName(StrEnum):
     _generate_next_value_ = lambda name, *_: name
@@ -35,3 +33,7 @@ class AutoNameSlugUpper(StrEnum):
 
 class AutoNameSlugTitle(StrEnum):
     _generate_next_value_ = lambda name, *_: slugify.slugify(name).title()
+
+class NoValue(AutoName):
+    def __repr__(self) -> str:
+        return f'<{self.__class__.__name__}.{self.name}>'
