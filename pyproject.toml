@@ -1,11 +1,13 @@
 [tool.poetry]
 name = "enumb"
 version = "0.1.0"
-description = ""
+description = "Python common enums"
 authors = ["Tom Bulled <26026015+tombulled@users.noreply.github.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
+pyhumps = "^1.6.1"
+python-slugify = "^4.0.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

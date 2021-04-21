@@ -1,2 +1,2 @@
 # enumb
-Python common base enums
+Python common enums
