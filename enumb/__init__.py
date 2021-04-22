@@ -13,16 +13,26 @@ class AutoEnumMeta(enum.EnumMeta):
     def __new__(metacls: type, cls: str, bases: typing.Tuple[type], classdict: typing.Dict[str, typing.Any]):
         attrs = addict.Dict(classdict)
 
+        namespace = metacls.__prepare__(cls, bases)
+
+        for key, value in classdict.items():
+            namespace[key] = value
+
         values = []
 
         for index, (member, annotation) in enumerate(attrs.__annotations__.items()):
-            value = attrs.get(member, attrs._generate_next_value_(member, 1, index, values))
+            value = attrs.get \
+            (
+                member,
+                attrs._generate_next_value_(member, 1, index, values),
+            )
+
+            if member not in classdict:
+                namespace[member] = value
 
             values.append(value)
 
-            attrs[member] = value
-
-        return super().__new__(metacls, cls, bases, attrs)
+        return super().__new__(metacls, cls, bases, namespace)
 
 class AutoEnum(enum.Enum, metaclass = AutoEnumMeta): pass
 
