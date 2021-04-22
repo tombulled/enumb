@@ -8,6 +8,7 @@ authors = ["Tom Bulled <26026015+tombulled@users.noreply.github.com>"]
 python = "^3.8"
 pyhumps = "^1.6.1"
 python-slugify = "^4.0.1"
+addict = "^2.4.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

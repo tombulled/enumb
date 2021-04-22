@@ -1,37 +1,58 @@
+import addict
 import humps
 import slugify
 
 import enum
+import typing
 
 class StrEnum(str, enum.Enum):
     def __str__(self) -> str:
         return super().__str__()
 
-class AutoName(StrEnum):
+class AutoEnumMeta(enum.EnumMeta):
+    def __new__(metacls: type, cls: str, bases: typing.Tuple[type], classdict: typing.Dict[str, typing.Any]):
+        attrs = addict.Dict(classdict)
+
+        values = []
+
+        for index, (member, annotation) in enumerate(attrs.__annotations__.items()):
+            value = attrs.get(member, attrs._generate_next_value_(member, 1, index, values))
+
+            values.append(value)
+
+            attrs[member] = value
+
+        return super().__new__(metacls, cls, bases, attrs)
+
+class AutoEnum(enum.Enum, metaclass = AutoEnumMeta): pass
+
+class AutoStrEnum(AutoEnum, StrEnum): pass
+
+class AutoName(AutoStrEnum):
     _generate_next_value_ = lambda name, *_: name
 
-class AutoNameLower(StrEnum):
+class AutoNameLower(AutoStrEnum):
     _generate_next_value_ = lambda name, *_: name.lower()
 
-class AutoNameUpper(StrEnum):
+class AutoNameUpper(AutoStrEnum):
     _generate_next_value_ = lambda name, *_: name.upper()
 
-class AutoNameTitle(StrEnum):
+class AutoNameTitle(AutoStrEnum):
     _generate_next_value_ = lambda name, *_: name.title()
 
-class AutoNamePascal(StrEnum):
+class AutoNamePascal(AutoStrEnum):
     _generate_next_value_ = lambda name, *_: humps.pascalize(name.lower())
 
-class AutoNameCamel(StrEnum):
+class AutoNameCamel(AutoStrEnum):
     _generate_next_value_ = lambda name, *_: humps.camelize(name.lower())
 
-class AutoNameSlug(StrEnum):
+class AutoNameSlug(AutoStrEnum):
     _generate_next_value_ = lambda name, *_: slugify.slugify(name)
 
-class AutoNameSlugUpper(StrEnum):
+class AutoNameSlugUpper(AutoStrEnum):
     _generate_next_value_ = lambda name, *_: slugify.slugify(name).upper()
 
-class AutoNameSlugTitle(StrEnum):
+class AutoNameSlugTitle(AutoStrEnum):
     _generate_next_value_ = lambda name, *_: slugify.slugify(name).title()
 
 class NoValue(AutoName):
