@@ -9,6 +9,10 @@ class StrEnum(str, enum.Enum):
     def __str__(self) -> str:
         return super().__str__()
 
+class IntEnum(int, enum.Enum):
+    def __str__(self) -> str:
+        return str(int(self))
+
 class AutoEnumMeta(enum.EnumMeta):
     def __new__(metacls: type, cls: str, bases: typing.Tuple[type], classdict: typing.Dict[str, typing.Any]):
         attrs = addict.Dict(classdict)

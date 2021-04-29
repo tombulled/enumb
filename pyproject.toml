@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "enumb"
-version = "0.1.0"
+version = "0.1.1"
 description = "Python common enums"
 authors = ["Tom Bulled <26026015+tombulled@users.noreply.github.com>"]
 
