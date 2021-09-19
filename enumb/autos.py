@@ -17,12 +17,21 @@ class AutoName(AutoStrEnum):
     _generate_next_value_ = lambda name, *_: name
 
 class AutoNameLower(AutoStrEnum):
-    _generate_next_value_ = lambda name, *_: name.lower()
+    _generate_next_value_ = lambda name, *_: name.replace('_', ' ').lower()
 
 class AutoNameUpper(AutoStrEnum):
-    _generate_next_value_ = lambda name, *_: name.upper()
+    _generate_next_value_ = lambda name, *_: name.replace('_', ' ').upper()
 
 class AutoNameTitle(AutoStrEnum):
+    _generate_next_value_ = lambda name, *_: name.replace('_', ' ').title()
+
+class AutoNameSnakeLower(AutoStrEnum):
+    _generate_next_value_ = lambda name, *_: name.lower()
+
+class AutoNameSnakeUpper(AutoStrEnum):
+    _generate_next_value_ = lambda name, *_: name.upper()
+
+class AutoNameSnakeTitle(AutoStrEnum):
     _generate_next_value_ = lambda name, *_: name.title()
 
 class AutoNamePascal(AutoStrEnum):
@@ -31,7 +40,7 @@ class AutoNamePascal(AutoStrEnum):
 class AutoNameCamel(AutoStrEnum):
     _generate_next_value_ = lambda name, *_: humps.camelize(name.lower())
 
-class AutoNameSlug(AutoStrEnum):
+class AutoNameSlugLower(AutoStrEnum):
     _generate_next_value_ = lambda name, *_: slugify.slugify(name)
 
 class AutoNameSlugUpper(AutoStrEnum):
