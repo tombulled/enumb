@@ -10,6 +10,27 @@ This library uses [Poetry](https://github.com/python-poetry/poetry) and can easi
 $ pip install git+https://github.com/tombulled/enumb
 ```
 
+### Case Types
+| Case Type | Output |
+| --------- | ------ |
+| Lower | foo bar cat dog
+| Upper | FOO BAR CAT DOG |
+| Title | Foo Bar Cat Dog |
+| Sentence | Foo bar cat dog |
+| Inverse | fOO bAR cAT dOG |
+| Alternate | fOo BaR cAt DoG |
+| Snake | foo_bar_cat_dog |
+| ??? | Foo_Bar_Cat_Dog |
+| Macro | FOO_BAR_CAT_DOG |
+| Flat | foobarcatdog |
+| ??? | FOOBARCATDOG |
+| Camel | fooBarCatDog |
+| Pascal | FooBarCatDog |
+| Kebab | foo-bar-cat-dog |
+| Train | Foo-Bar-Cat-Dog |
+| Cobol | FOO-BAR-CAT-DOG |
+| Dot | foo.bar.cat.dog |
+
 ## Usage
 ```python
 >>> class Protocol(enumb.AutoName):
