@@ -131,4 +131,4 @@ dmypy.json
 # Custom
 app.py
 app.*.py
-_bin/
+.ignore/
