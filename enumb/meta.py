@@ -3,7 +3,7 @@ import typing
 
 import addict
 
-class AutoEnumMeta(enum.EnumMeta):
+class EnumMeta(enum.EnumMeta):
     def __new__ \
             (
                 metacls:   type,
