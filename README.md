@@ -1,8 +1,8 @@
 # enumb
-Beautifully streamlined Python Enums
+Concise, Pythonic Enums
 
-## About
-Are you fed up of writing `enum.auto()`... me too!
+## Prelude
+Are you fed up of writing `enum.auto()`... then you're in the right place!
 
 ## Installation
 This library uses [Poetry](https://github.com/python-poetry/poetry) and can easily be installed using *pip*
@@ -10,73 +10,59 @@ This library uses [Poetry](https://github.com/python-poetry/poetry) and can easi
 $ pip install git+https://github.com/tombulled/enumb
 ```
 
-### Case Types
-| Case Type | Example |
-| --------- | ------ |
-| Lower | foo bar |
-| Upper | FOO BAR |
-| Title | Foo Bar |
-| Sentence | Foo bar |
-| Snake | foo_bar |
-| *Helter* | Foo_Bar |
-| Macro | FOO_BAR |
-| Flat | foobar |
-| *Flush* | FOOBAR |
-| Camel | fooBar |
-| Pascal | FooBar |
-| Kebab | foo-bar |
-| Train | Foo-Bar |
-| Cobol | FOO-BAR |
-| Dot | foo.bar |
+## Examples
 
-## Usage
+### Empty
 ```python
->>> class Protocol(enumb.AutoName):
-        UDP: str
-        TCP: str
+>>> class Role(enumb.Empty):
+        ADMIN: str
 >>>
->>> Protocol.UDP
-<Protocol.UDP: 'UDP'>
+>>> Role.ADMIN
+<Role.ADMIN>
 >>>
->>> class Header(enumb.AutoNameSlugTitle):
-        REFERER:         str
-        USER_AGENT:      str
-        ACCEPT_LANGUAGE: str
->>>
->>> Header.ACCEPT_LANGUAGE
-<Header.ACCEPT_LANGUAGE: 'Accept-Language'>
->>>
->>> class Band(enumb.AutoNameTitle):
-        NIRVANA:      str
-        FOO_FIGHTERS: str
->>>
->>> Band.FOO_FIGHTERS
-<Band.FOO_FIGHTERS: 'Foo Fighters'>
->>>
->>> class Product(enumb.AutoNameSlugLower):
-        CHROME:      str
-        GOOGLE_PLAY: str
-        GMAIL:       str
-
->>> Product.GOOGLE_PLAY
-<Product.GOOGLE_PLAY: 'google-play'>
->>>
->>> >>> class Parameter(enumb.AutoNameSnakeLower):
-...     USERNAME: str
-...     PASSWORD: str
-...     USE_SSL:  str
-...
->>> Parameter.USE_SSL
-<Parameter.USE_SSL: 'use_ssl'>
->>>
->>> # etc.
 ```
 
+### Name
+```python
+>>> class MyEnum(enumb.Name):
+        Some__SPECIFIC_namE: str
+>>>
+>>> MyEnum.Some__SPECIFIC_namE
+<MyEnum.Some__SPECIFIC_namE: 'Some__SPECIFIC_namE'>
+>>>
+```
 
-## Credits
-Here's a list of the awesome libraries used to make `enumb`
-| Library | Repository |
-| ------- | ---------- |
-| [addict](https://pypi.org/project/addict/) | [mewwts/addict](https://github.com/mewwts/addict) |
-| [humps](https://pypi.org/project/pyhumps/) | [nficano/humps](https://github.com/nficano/humps) |
-| [slugify](https://pypi.org/project/python-slugify/) | [un33k/python-slugify](https://github.com/un33k/python-slugify) |
+### Lower
+```python
+>>> class MyEnum(enumb.Lower):
+        FOO_BAR: str
+>>>
+>>> MyEnum.FOO_BAR
+<MyEnum.FOO_BAR: 'foo bar'>
+>>>
+```
+
+### Train
+```python
+>>> class Header(enumb.Train):
+        USER_AGENT: str
+>>>
+>>> Header.USER_AGENT
+<Header.USER_AGENT: 'User-Agent'>
+>>>
+```
+
+### Advanced Usage
+```python
+>>> import enumb
+>>>
+>>> class Tag(enumb.Enum):
+        _generate_next_value_ = lambda name, *_: f'<{name.lower()}>'
+>>>
+>>> class Html(Tag):
+        P: str
+>>>
+>>> Html.P
+<Html.P: '<p>'>
+>>>
+```
