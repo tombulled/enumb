@@ -1,12 +1,14 @@
 import typing
+import functools
 
-import addict
+from . import models
+from . import types
 
-def generate(generator):
+def generator(func):
     def wrapper(name: str, start: int, count: int, last_values: typing.List[typing.Any]):
-        return generator \
+        return func \
         (
-            addict.Dict \
+            models.Arguments \
             (
                 name        = name,
                 start       = start,
@@ -17,8 +19,18 @@ def generate(generator):
 
     return wrapper
 
-def generate_name(generator):
-    return generate(lambda kwargs: generator(kwargs.name))
+def generate(func):
+    def wrapper(cls):
+        @functools.wraps(cls, updated = ())
+        class Wrapped(cls):
+            _generate_next_value_: types.EnumValueGenerator = generator(func)
 
-def generate_count(generator):
-    return generate(lambda kwargs: generator(kwargs.count))
+        return Wrapped
+
+    return wrapper
+
+def name(func):
+    return generate(lambda args: func(args.name))
+
+def count(func):
+    return generate(lambda args: func(args.count))

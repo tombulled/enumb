@@ -4,11 +4,11 @@ from . import meta
 
 class Enum(enum.Enum, metaclass = meta.EnumMeta): pass
 
-class StrEnum(str, Enum):
+class BaseTypeEnum(Enum):
     def __str__(self) -> str:
-        return super().__str__()
+        return str(self.value)
 
-class IntEnum(int, Enum):
-    def __str__(self) -> str:
-        # NOTE: This applies to all, including `StrEnum`. Turn into mixin class?
-        return self.value.__str__()
+class StrEnum  (str,   BaseTypeEnum): pass
+class IntEnum  (int,   BaseTypeEnum): pass
+class FloatEnum(float, BaseTypeEnum): pass
+class BytesEnum(bytes, BaseTypeEnum): pass

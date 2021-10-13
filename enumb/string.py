@@ -1,55 +1,57 @@
-import case # TODO: Add as dependency
+# TODO: Add as sibling dependency
+import case
 
 from . import bases
 from . import generators
+from . import utils
 
-class Name(bases.StrEnum):
-    _generate_next_value_ = generators.generate_name(lambda name: name)
+@generators.name(utils.identity)
+class Name(bases.StrEnum): ...
 
-class Lower(bases.StrEnum):
-    _generate_next_value_ = generators.generate_name(case.lower)
+@generators.name(case.lower)
+class Lower(bases.StrEnum): ...
 
-class Upper(bases.StrEnum):
-    _generate_next_value_ = generators.generate_name(case.upper)
+@generators.name(case.upper)
+class Upper(bases.StrEnum): ...
 
-class Title(bases.StrEnum):
-    _generate_next_value_ = generators.generate_name(case.title)
+@generators.name(case.title)
+class Title(bases.StrEnum): ...
 
-class Sentence(bases.StrEnum):
-    _generate_next_value_ = generators.generate_name(case.sentence)
+@generators.name(case.sentence)
+class Sentence(bases.StrEnum): ...
 
-class Snake(bases.StrEnum):
-    _generate_next_value_ = generators.generate_name(case.snake)
+@generators.name(case.snake)
+class Snake(bases.StrEnum): ...
 
-class Helter(bases.StrEnum):
-    _generate_next_value_ = generators.generate_name(case.helter)
+@generators.name(case.helter)
+class Helter(bases.StrEnum): ...
 
-class Macro(bases.StrEnum):
-    _generate_next_value_ = generators.generate_name(case.macro)
+@generators.name(case.macro)
+class Macro(bases.StrEnum): ...
 
-class Flat(bases.StrEnum):
-    _generate_next_value_ = generators.generate_name(case.flat)
+@generators.name(case.flat)
+class Flat(bases.StrEnum): ...
 
-class Flush(bases.StrEnum):
-    _generate_next_value_ = generators.generate_name(case.flush)
+@generators.name(case.flush)
+class Flush(bases.StrEnum): ...
 
-class Camel(bases.StrEnum):
-    _generate_next_value_ = generators.generate_name(case.camel)
+@generators.name(case.camel)
+class Camel(bases.StrEnum): ...
 
-class Pascal(bases.StrEnum):
-    _generate_next_value_ = generators.generate_name(case.pascal)
+@generators.name(case.pascal)
+class Pascal(bases.StrEnum): ...
 
-class Kebab(bases.StrEnum):
-    _generate_next_value_ = generators.generate_name(case.kebab)
+@generators.name(case.kebab)
+class Kebab(bases.StrEnum): ...
 
-class Train(bases.StrEnum):
-    _generate_next_value_ = generators.generate_name(case.train)
+@generators.name(case.train)
+class Train(bases.StrEnum): ...
 
-class Cobol(bases.StrEnum):
-    _generate_next_value_ = generators.generate_name(case.cobol)
+@generators.name(case.cobol)
+class Cobol(bases.StrEnum): ...
 
-class Dot(bases.StrEnum):
-    _generate_next_value_ = generators.generate_name(case.dot)
+@generators.name(case.dot)
+class Dot(bases.StrEnum): ...
 
-class Path(bases.StrEnum):
-    _generate_next_value_ = generators.generate_name(case.path)
+@generators.name(case.path)
+class Path(bases.StrEnum): ...

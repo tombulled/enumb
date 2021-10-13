@@ -14,7 +14,7 @@ $ pip install git+https://github.com/tombulled/enumb
 
 ### Empty
 ```python
->>> class Role(enumb.Empty):
+>>> class Role(enumb.NoValue):
         ADMIN: str
 >>>
 >>> Role.ADMIN
