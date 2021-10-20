@@ -1,14 +1,9 @@
 import enum
-import types
 import typing
 
-from . import classes
+import export # TODO: Add as sibling dependency
 
-# import inspect
-
-# TODO: Drop dependency on `addict`
-import addict
-
+@export
 class EnumMeta(enum.EnumMeta):
     def __new__ \
             (
@@ -16,35 +11,12 @@ class EnumMeta(enum.EnumMeta):
                 cls:       str,
                 bases:     typing.Tuple[type],
                 classdict: typing.Dict[str, typing.Any],
-            ):
-        # signature = inspect.signature(metacls)
-        # print(signature)
-        # print(signature.__dict__)
-        # attrs: types.SimpleNamespace = types.SimpleNamespace(**classdict)
-        attrs = addict.Dict(classdict)
-        # attrs = classes.AttrDict(classdict)
+            ) -> object:
+        annotations: dict = classdict.get('__annotations__', {})
 
-        # print(attrs)
-
-        namespace: enum._EnumDict = metacls.__prepare__(cls, bases)
-
-        for key, value in classdict.items():
-            namespace.__setitem__(key, value)
-
-        values: list = []
-
-        for index, (member, annotation) in enumerate(attrs.__annotations__.items(), start = 1):
-            value = attrs.get \
-            (
-                member,
-                # Note: Can't assume that this exists?
-                # Do enums have a default version of this (that uses ints)?
-                attrs._generate_next_value_(member, 1, index, values),
-            )
-
+        member: str
+        for member in annotations:
             if member not in classdict:
-                namespace.__setitem__(member, value)
+                classdict[member]: enum.auto = enum.auto()
 
-            values.append(value)
-
-        return super().__new__(metacls, cls, bases, namespace)
+        return super().__new__(metacls, cls, bases, classdict)

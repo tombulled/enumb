@@ -1,14 +1,21 @@
 import enum
 
+import export # TODO: Add as sibling dependency
+
+from . import generators
 from . import meta
 
+@export
 class Enum(enum.Enum, metaclass = meta.EnumMeta): pass
 
 class BaseTypeEnum(Enum):
     def __str__(self) -> str:
         return str(self.value)
 
-class StrEnum  (str,   BaseTypeEnum): pass
-class IntEnum  (int,   BaseTypeEnum): pass
-class FloatEnum(float, BaseTypeEnum): pass
-class BytesEnum(bytes, BaseTypeEnum): pass
+@export
+class IntEnum(int, BaseTypeEnum):
+    _generate_next_value_ = generators.count
+
+@export
+class StrEnum(str, BaseTypeEnum):
+    _generate_next_value_ = generators.name

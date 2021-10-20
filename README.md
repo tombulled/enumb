@@ -2,7 +2,7 @@
 Concise, Pythonic Enums
 
 ## Prelude
-Are you fed up of writing `enum.auto()`... then you're in the right place!
+This library was created out of the frustration of writing `enum.auto()`.
 
 ## Installation
 This library uses [Poetry](https://github.com/python-poetry/poetry) and can easily be installed using *pip*
@@ -12,7 +12,7 @@ $ pip install git+https://github.com/tombulled/enumb
 
 ## Examples
 
-### Empty
+### NoValue
 ```python
 >>> class Role(enumb.NoValue):
         ADMIN: str
@@ -49,20 +49,5 @@ $ pip install git+https://github.com/tombulled/enumb
 >>>
 >>> Header.USER_AGENT
 <Header.USER_AGENT: 'User-Agent'>
->>>
-```
-
-### Advanced Usage
-```python
->>> import enumb
->>>
->>> class Tag(enumb.Enum):
-        _generate_next_value_ = lambda name, *_: f'<{name.lower()}>'
->>>
->>> class Html(Tag):
-        P: str
->>>
->>> Html.P
-<Html.P: '<p>'>
 >>>
 ```
