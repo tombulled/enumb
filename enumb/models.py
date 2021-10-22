@@ -1,7 +1,7 @@
 import dataclasses
 import typing
 
-import export # TODO: Add as sibling dependency
+import export
 
 @export
 @dataclasses.dataclass(frozen = True)

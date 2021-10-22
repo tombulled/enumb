@@ -1,7 +1,7 @@
 import enum
 import typing
 
-import export # TODO: Add as sibling dependency
+import export
 
 @export
 class EnumMeta(enum.EnumMeta):
