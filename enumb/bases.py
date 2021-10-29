@@ -1,9 +1,21 @@
 import enum
 
-class StrEnum(str, enum.Enum):
-    def __str__(self) -> str:
-        return super().__str__()
+import export
 
-class IntEnum(int, enum.Enum):
+from . import generators
+from . import meta
+
+@export
+class Enum(enum.Enum, metaclass = meta.EnumMeta): pass
+
+class BaseTypeEnum(Enum):
     def __str__(self) -> str:
-        return self.value.__str__()
+        return str(self.value)
+
+@export
+class IntEnum(int, BaseTypeEnum):
+    _generate_next_value_ = generators.count
+
+@export
+class StrEnum(str, BaseTypeEnum):
+    _generate_next_value_ = generators.name

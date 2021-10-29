@@ -1,17 +1,13 @@
 [tool.poetry]
 name = "enumb"
-version = "0.1.1"
-description = "Python common enums"
+version = "0.1.2"
+description = "Concise, Pythonic Enums"
 authors = ["Tom Bulled <26026015+tombulled@users.noreply.github.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
-pyhumps = "^1.6.1"
-python-slugify = "^4.0.1"
-addict = "^2.4.0"
-
-[tool.poetry.dev-dependencies]
-pytest = "^5.2"
+export = {git = "https://github.com/tombulled/export.git", rev = "main"}
+case = {git = "https://github.com/tombulled/case.git", rev = "main"}
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

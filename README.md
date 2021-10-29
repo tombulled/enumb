@@ -1,8 +1,8 @@
 # enumb
-Beautifully streamlined Python Enums
+Concise, Pythonic Enums
 
-## About
-Are you fed up of writing `enum.auto()`... me too!
+## Prelude
+This library was created out of the frustration of writing `enum.auto()`.
 
 ## Installation
 This library uses [Poetry](https://github.com/python-poetry/poetry) and can easily be installed using *pip*
@@ -10,15 +10,44 @@ This library uses [Poetry](https://github.com/python-poetry/poetry) and can easi
 $ pip install git+https://github.com/tombulled/enumb
 ```
 
-## Usage
+## Examples
+
+### NoValue
 ```python
->>> # TODO
+>>> class Role(enumb.NoValue):
+        ADMIN: ...
+>>>
+>>> Role.ADMIN
+<Role.ADMIN>
+>>>
 ```
 
-## Credits
-Here's a list of the awesome libraries used to make `enumb`
-| Library | Repository |
-| ------- | ---------- |
-| [addict](https://pypi.org/project/addict/) | [mewwts/addict](https://github.com/mewwts/addict) |
-| [humps](https://pypi.org/project/pyhumps/) | [nficano/humps](https://github.com/nficano/humps) |
-| [slugify](https://pypi.org/project/python-slugify/) | [un33k/python-slugify](https://github.com/un33k/python-slugify) |
+### Name
+```python
+>>> class MyEnum(enumb.Name):
+        Some__SPECIFIC_namE: str
+>>>
+>>> MyEnum.Some__SPECIFIC_namE
+<MyEnum.Some__SPECIFIC_namE: 'Some__SPECIFIC_namE'>
+>>>
+```
+
+### Lower
+```python
+>>> class MyEnum(enumb.Lower):
+        FOO_BAR: str
+>>>
+>>> MyEnum.FOO_BAR
+<MyEnum.FOO_BAR: 'foo bar'>
+>>>
+```
+
+### Train
+```python
+>>> class Header(enumb.Train):
+        USER_AGENT: str
+>>>
+>>> Header.USER_AGENT
+<Header.USER_AGENT: 'User-Agent'>
+>>>
+```
