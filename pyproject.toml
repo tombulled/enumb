@@ -6,8 +6,8 @@ authors = ["Tom Bulled <26026015+tombulled@users.noreply.github.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
-export = {git = "https://github.com/tombulled/export.git", rev = "dev"}
-case = {git = "https://github.com/tombulled/case.git", rev = "dev"}
+export = {git = "https://github.com/tombulled/export.git", rev = "main"}
+case = {git = "https://github.com/tombulled/case.git", rev = "main"}
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
