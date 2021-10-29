@@ -1,38 +1,30 @@
 [[package]]
-name = "case"
+name = "cassidy"
 version = "0.1.2"
 description = "String case conversion, identification and parsing"
 category = "main"
 optional = false
-python-versions = "^3.8"
-develop = false
-
-[package.source]
-type = "git"
-url = "https://github.com/tombulled/case.git"
-reference = "dev"
-resolved_reference = "92daff1b845874026fc6f46332a2d5935a7c15f0"
+python-versions = ">=3.8,<4.0"
 
 [[package]]
-name = "export"
-version = "0.1.0"
-description = ""
+name = "expo"
+version = "0.1.1"
+description = "Selectively expose module functionality"
 category = "main"
 optional = false
-python-versions = "^3.8"
-develop = false
-
-[package.source]
-type = "git"
-url = "https://github.com/tombulled/export.git"
-reference = "dev"
-resolved_reference = "602e0257fe61d8e96f5a745fa7f5818293ab257b"
+python-versions = ">=3.8,<4.0"
 
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "9f8a3c52771bd8d22cf7a73097050e226049a06a16ff205c2efed1ffda9151b8"
+content-hash = "f8df783c47f44c4be82e2161eebecb8c0ea01976005a2c56db416db99da475b9"
 
 [metadata.files]
-case = []
-export = []
+cassidy = [
+    {file = "cassidy-0.1.2-py3-none-any.whl", hash = "sha256:7ecd2e88c95795589a3320afaf3a7ec26ad4f52e71b5dc8038694ff974bd2c0c"},
+    {file = "cassidy-0.1.2.tar.gz", hash = "sha256:9edec9dbdf43097242ae20f15fc020f045d513cceeffc09af564a5d5aa776ee3"},
+]
+expo = [
+    {file = "expo-0.1.1-py3-none-any.whl", hash = "sha256:f74b69863aae2ab49f2e310ec4853bfd5a742e9350939d7823b17c5de3e2f41c"},
+    {file = "expo-0.1.1.tar.gz", hash = "sha256:825ed5bb2ab9b972f11dfc44673b28636001edcb3a35103b8546662321150a02"},
+]
