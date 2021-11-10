@@ -1,9 +1,9 @@
 import enum
 import typing
 
-import export
+import expo
 
-@export
+@expo
 class EnumMeta(enum.EnumMeta):
     def __new__ \
             (

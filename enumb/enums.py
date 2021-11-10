@@ -1,21 +1,21 @@
-import case
-import export
+import cassidy
+import expo
 
 from . import bases
 from . import generators
 from . import utils
 
-@export
+@expo
 class Name(bases.StrEnum): pass
 
-@export
+@expo
 class Index(bases.IntEnum): pass
 
-@export
+@expo
 class Integer(bases.IntEnum):
     _generate_next_value_ = utils.compose(generators.count, lambda count: count + 1)
 
-@export
+@expo
 class NoValue(bases.Enum):
     def __repr__(self) -> str:
         return f'<{type(self).__name__}.{self.name}>'
@@ -24,66 +24,66 @@ class NoValue(bases.Enum):
     def value(self) -> None:
         raise AttributeError(f'{type(self).__name__!r} object has no attribute \'value\'')
 
-@export
+@expo
 class Lower(bases.StrEnum):
-    _generate_next_value_ = utils.compose(generators.name, case.lower)
+    _generate_next_value_ = utils.compose(generators.name, cassidy.lower)
 
-@export
+@expo
 class Upper(bases.StrEnum):
-    _generate_next_value_ = utils.compose(generators.name, case.upper)
+    _generate_next_value_ = utils.compose(generators.name, cassidy.upper)
 
-@export
+@expo
 class Title(bases.StrEnum):
-    _generate_next_value_ = utils.compose(generators.name, case.title)
+    _generate_next_value_ = utils.compose(generators.name, cassidy.title)
 
-@export
+@expo
 class Sentence(bases.StrEnum):
-    _generate_next_value_ = utils.compose(generators.name, case.sentence)
+    _generate_next_value_ = utils.compose(generators.name, cassidy.sentence)
 
-@export
+@expo
 class Snake(bases.StrEnum):
-    _generate_next_value_ = utils.compose(generators.name, case.snake)
+    _generate_next_value_ = utils.compose(generators.name, cassidy.snake)
 
-@export
+@expo
 class Helter(bases.StrEnum):
-    _generate_next_value_ = utils.compose(generators.name, case.helter)
+    _generate_next_value_ = utils.compose(generators.name, cassidy.helter)
 
-@export
+@expo
 class Macro(bases.StrEnum):
-    _generate_next_value_ = utils.compose(generators.name, case.macro)
+    _generate_next_value_ = utils.compose(generators.name, cassidy.macro)
 
-@export
+@expo
 class Flat(bases.StrEnum):
-    _generate_next_value_ = utils.compose(generators.name, case.flat)
+    _generate_next_value_ = utils.compose(generators.name, cassidy.flat)
 
-@export
+@expo
 class Flush(bases.StrEnum):
-    _generate_next_value_ = utils.compose(generators.name, case.flush)
+    _generate_next_value_ = utils.compose(generators.name, cassidy.flush)
 
-@export
+@expo
 class Camel(bases.StrEnum):
-    _generate_next_value_ = utils.compose(generators.name, case.camel)
+    _generate_next_value_ = utils.compose(generators.name, cassidy.camel)
 
-@export
+@expo
 class Pascal(bases.StrEnum):
-    _generate_next_value_ = utils.compose(generators.name, case.pascal)
+    _generate_next_value_ = utils.compose(generators.name, cassidy.pascal)
 
-@export
+@expo
 class Kebab(bases.StrEnum):
-    _generate_next_value_ = utils.compose(generators.name, case.kebab)
+    _generate_next_value_ = utils.compose(generators.name, cassidy.kebab)
 
-@export
+@expo
 class Train(bases.StrEnum):
-    _generate_next_value_ = utils.compose(generators.name, case.train)
+    _generate_next_value_ = utils.compose(generators.name, cassidy.train)
 
-@export
+@expo
 class Cobol(bases.StrEnum):
-    _generate_next_value_ = utils.compose(generators.name, case.cobol)
+    _generate_next_value_ = utils.compose(generators.name, cassidy.cobol)
 
-@export
+@expo
 class Dot(bases.StrEnum):
-    _generate_next_value_ = utils.compose(generators.name, case.dot)
+    _generate_next_value_ = utils.compose(generators.name, cassidy.dot)
 
-@export
+@expo
 class Path(bases.StrEnum):
-    _generate_next_value_ = utils.compose(generators.name, case.path)
+    _generate_next_value_ = utils.compose(generators.name, cassidy.path)

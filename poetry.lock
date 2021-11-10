@@ -1,6 +1,6 @@
 [[package]]
 name = "cassidy"
-version = "0.1.2"
+version = "0.1.4"
 description = "String case conversion, identification and parsing"
 category = "main"
 optional = false
@@ -8,7 +8,7 @@ python-versions = ">=3.8,<4.0"
 
 [[package]]
 name = "expo"
-version = "0.1.1"
+version = "0.1.2"
 description = "Selectively expose module functionality"
 category = "main"
 optional = false
@@ -21,10 +21,10 @@ content-hash = "f8df783c47f44c4be82e2161eebecb8c0ea01976005a2c56db416db99da475b9
 
 [metadata.files]
 cassidy = [
-    {file = "cassidy-0.1.2-py3-none-any.whl", hash = "sha256:7ecd2e88c95795589a3320afaf3a7ec26ad4f52e71b5dc8038694ff974bd2c0c"},
-    {file = "cassidy-0.1.2.tar.gz", hash = "sha256:9edec9dbdf43097242ae20f15fc020f045d513cceeffc09af564a5d5aa776ee3"},
+    {file = "cassidy-0.1.4-py3-none-any.whl", hash = "sha256:9e6fdfff81accd7766f9b3e6665a1c0a914fd7b23c6da16d9face886bc1fb7d8"},
+    {file = "cassidy-0.1.4.tar.gz", hash = "sha256:d51a0f4210a614f6b092e25fe29c981de0d9b769c42129b43708e8f847e22bee"},
 ]
 expo = [
-    {file = "expo-0.1.1-py3-none-any.whl", hash = "sha256:f74b69863aae2ab49f2e310ec4853bfd5a742e9350939d7823b17c5de3e2f41c"},
-    {file = "expo-0.1.1.tar.gz", hash = "sha256:825ed5bb2ab9b972f11dfc44673b28636001edcb3a35103b8546662321150a02"},
+    {file = "expo-0.1.2-py3-none-any.whl", hash = "sha256:a36d64c6954de353ee67491351362b04c1b3281acb69afa8534b41279ecd2306"},
+    {file = "expo-0.1.2.tar.gz", hash = "sha256:df9042d9d73307bf987e89791b6e36744c5fa99f7464210e956e76d7fe3e84bd"},
 ]

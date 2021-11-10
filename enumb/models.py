@@ -1,9 +1,9 @@
 import dataclasses
 import typing
 
-import export
+import expo
 
-@export
+@expo
 @dataclasses.dataclass(frozen = True)
 class Arguments:
     name:        str
