@@ -1,12 +1,6 @@
-import typing
+from typing import Any, Callable, List
 
-EnumValueGenerator = typing.Callable \
-[
-    [
-        str,                    # name
-        int,                    # start
-        int,                    # count
-        typing.List[typing.Any] # last_values
-    ],
-    typing.Any,
+EnumValueGenerator = Callable[
+    [str, int, int, List[Any]],  # name, start, count, last_values
+    Any,
 ]

@@ -1,18 +1,15 @@
 import enum
 import typing
+from typing import Dict, Tuple
 
-import expo
-
-@expo
 class EnumMeta(enum.EnumMeta):
-    def __new__ \
-            (
-                metacls:   type,
-                cls:       str,
-                bases:     typing.Tuple[type],
-                classdict: typing.Dict[str, typing.Any],
-            ) -> object:
-        annotations: dict = classdict.get('__annotations__', {})
+    def __new__(
+        metacls: type,
+        cls: str,
+        bases: Tuple[type],
+        classdict: enum._EnumDict,
+    ) -> object:
+        annotations: Dict[str, type] = typing.get_type_hints(cls)
 
         member: str
         for member in annotations:

@@ -1,12 +1,10 @@
 import dataclasses
-import typing
+from typing import List
 
-import expo
 
-@expo
-@dataclasses.dataclass(frozen = True)
+@dataclasses.dataclass(frozen=True)
 class Arguments:
-    name:        str
-    start:       int
-    count:       int
-    last_values: typing.List[str]
+    name: str
+    start: int
+    count: int
+    last_values: List[str]

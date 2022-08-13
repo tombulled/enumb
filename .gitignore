@@ -129,6 +129,6 @@ dmypy.json
 .pyre/
 
 # Custom
-app.py
-app.*.py
+# app.py
+# app.*.py
 .ignore/

@@ -1,18 +1,14 @@
-import typing
+from typing import Any, Callable
 
-def compose(*functions: typing.Callable) -> typing.Callable:
-    def wrapper(*args: typing.Any, **kwargs: typing.Any) -> typing.Any:
-        response: typing.Any = None
+
+def compose(*functions: Callable) -> Callable:
+    def wrapper(*args: Any, **kwargs: Any) -> Any:
+        response: Any = None
 
         index: int
-        function: typing.Callable
+        function: Callable
         for index, function in enumerate(functions):
-            response = \
-            (
-                function(*args, **kwargs)
-                if not index
-                else function(response)
-            )
+            response = function(*args, **kwargs) if not index else function(response)
 
         return response
 
